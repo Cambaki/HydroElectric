@@ -14,8 +14,37 @@ from modules.visualization import HydroVisualization
 from modules.turbine import HydroTurbine
 from modules.load_flow import PowerFlowAnalysis
 
-st.set_page_config(layout="wide")
-st.title("🔋 Hydroelectric Generator Real-Time Dashboard")
+st.set_page_config(
+    page_title="HydroPower Pro - Cambaki Energy Solutions",
+    page_icon="⚡",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': 'https://github.com/Cambaki/HydroElectric',
+        'Report a bug': 'https://github.com/Cambaki/HydroElectric/issues',
+        'About': "# HydroPower Pro\nBuilt by Cambaki Energy Solutions\n\nAdvanced hydroelectric power monitoring and analysis platform."
+    }
+)
+st.title("⚡ HydroPower Pro - Advanced Energy Management System")
+st.markdown("**Powered by Cambaki Energy Solutions** | Real-Time Monitoring & ML Prediction")
+
+# Load custom CSS
+def load_css():
+    try:
+        with open('style.css') as f:
+            st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    except FileNotFoundError:
+        pass  # CSS file is optional
+
+load_css()
+
+# Add custom header with branding
+st.markdown("""
+<div style='text-align: center; padding: 20px; background: linear-gradient(90deg, #1f4e79 0%, #4a90e2 100%); color: white; border-radius: 10px; margin-bottom: 20px;'>
+    <h2>🌊 Cambaki HydroPower Pro Dashboard</h2>
+    <p>Professional Hydroelectric Power Management & Analysis Platform</p>
+</div>
+""", unsafe_allow_html=True)
 
 # Initialize our custom modules
 viz = HydroVisualization()
@@ -25,19 +54,38 @@ power_system = PowerFlowAnalysis()
 # Create a simple microgrid for analysis
 power_system.create_simple_microgrid()
 
-# Sidebar Controls
-sim_days = st.sidebar.slider("Simulation Days", 1, 14, 7)
-show_charts = st.sidebar.multiselect("Select Visuals", [
+# Sidebar Controls with Custom Branding
+st.sidebar.markdown("""
+<div style='text-align: center; padding: 15px; background: linear-gradient(45deg, #1f4e79, #4a90e2); color: white; border-radius: 10px; margin-bottom: 20px;'>
+    <h3>⚡ Control Panel</h3>
+    <p style='margin: 0; font-size: 14px;'>Cambaki HydroPower Pro</p>
+</div>
+""", unsafe_allow_html=True)
+
+sim_days = st.sidebar.slider("🗓️ Simulation Days", 1, 14, 7)
+show_charts = st.sidebar.multiselect("📊 Select Visualizations", [
     "Source Contribution", "Battery SOC Gauge", "Actual vs Predicted Demand",
     "Energy Flow Over Time", "Correlation Heatmap", "Power Loss Pie Chart",
     "Animated Power Flow", "Turbine Analysis", "Power System Analysis"
 ], default=["Source Contribution", "Battery SOC Gauge"])
 
 # Advanced analysis options
+st.sidebar.markdown("---")
 st.sidebar.subheader("🔧 Advanced Analysis")
-show_turbine_sim = st.sidebar.checkbox("Turbine Simulation", value=False)
-show_power_flow = st.sidebar.checkbox("Power Flow Analysis", value=False)
-turbine_hours = st.sidebar.slider("Turbine Simulation Hours", 1, 48, 24)
+show_turbine_sim = st.sidebar.checkbox("🌊 Turbine Simulation", value=False)
+show_power_flow = st.sidebar.checkbox("⚡ Power Flow Analysis", value=False)
+turbine_hours = st.sidebar.slider("⏱️ Turbine Simulation Hours", 1, 48, 24)
+
+# Sidebar footer
+st.sidebar.markdown("---")
+st.sidebar.markdown("""
+<div style='text-align: center; padding: 10px; background-color: #f0f8ff; border-radius: 5px;'>
+    <p style='margin: 0; font-size: 12px; color: #1f4e79;'>
+        <strong>Cambaki Energy Solutions</strong><br>
+        Professional Energy Management
+    </p>
+</div>
+""", unsafe_allow_html=True)
 
 # Run simulation and train model
 df_hist = simulate_microgrid(sim_days=sim_days)
@@ -275,3 +323,19 @@ with col3:
         st.markdown(f"**System Losses:** `{report['system_summary']['loss_percentage']:.2f}%`")
         voltage_range = f"{report['power_quality']['voltage_stats']['min_voltage']:.3f} - {report['power_quality']['voltage_stats']['max_voltage']:.3f}"
         st.markdown(f"**Voltage Range:** `{voltage_range} p.u.`")
+
+# Custom footer with branding
+st.markdown("---")
+st.markdown("""
+<div style='text-align: center; padding: 20px; background-color: #f8f9fa; border-radius: 10px; margin-top: 30px;'>
+    <p style='margin: 0; color: #1f4e79; font-weight: bold;'>⚡ HydroPower Pro v1.0</p>
+    <p style='margin: 5px 0 0 0; color: #666; font-size: 14px;'>
+        Built with ❤️ by <strong>Cambaki Energy Solutions</strong> | 
+        <a href='https://github.com/Cambaki/HydroElectric' target='_blank' style='color: #4a90e2; text-decoration: none;'>GitHub Repository</a> | 
+        <a href='mailto:Clambak874@gmail.com' style='color: #4a90e2; text-decoration: none;'>Contact</a>
+    </p>
+    <p style='margin: 5px 0 0 0; color: #888; font-size: 12px;'>
+        Professional Hydroelectric Power Management & Analysis Platform
+    </p>
+</div>
+""", unsafe_allow_html=True)

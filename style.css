@@ -1,0 +1,94 @@
+/* HydroPower Pro Custom Styling */
+
+/* Hide Streamlit branding */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Custom header styling */
+.main .block-container {
+    padding-top: 2rem;
+}
+
+/* Custom title styling */
+h1 {
+    color: #1f4e79;
+    font-family: 'Arial', sans-serif;
+    border-bottom: 3px solid #4a90e2;
+    padding-bottom: 10px;
+}
+
+/* Custom sidebar styling */
+.css-1d391kg {
+    background-color: #f0f8ff;
+}
+
+/* Custom metric styling */
+[data-testid="metric-container"] {
+    background-color: #ffffff;
+    border: 1px solid #e1e5e9;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Custom button styling */
+.stButton > button {
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+}
+
+.stButton > button:hover {
+    background-color: #357abd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Custom selectbox styling */
+.stSelectbox > div > div > select {
+    background-color: #ffffff;
+    border: 2px solid #4a90e2;
+    border-radius: 10px;
+}
+
+/* Custom footer */
+.custom-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1f4e79;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+}
+
+/* Plotly chart styling */
+.plotly-graph-div {
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Success/warning/error message styling */
+.stSuccess {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.stWarning {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.stError {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
