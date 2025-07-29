@@ -1,4 +1,6 @@
-# 🔋 Hydroelectric Generator Real-Time Dashboard
+# ⚡ HydroPower Pro - Advanced Energy Management System
+
+**Powered by Cambaki Energy Solutions**
 
 A comprehensive hydroelectric power generation simulation and monitoring system built with Python and Streamlit. Features real-time data visualization, machine learning demand prediction, turbine physics modeling, and electrical power system analysis.
 
@@ -184,7 +186,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Cambaki** - Clambak874@gmail.com
 
-Project Link: [https://github.com/YOUR_USERNAME/hydro-generator-project](https://github.com/YOUR_USERNAME/hydro-generator-project)
+Project Link: [https://github.com/Cambaki/HydroElectric](https://github.com/Cambaki/HydroElectric)
 
 ---
 *Built with ❤️ for sustainable energy monitoring and analysis*
